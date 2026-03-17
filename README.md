@@ -1,16 +1,57 @@
-# taxxons
+# Taxxons
 
-A new Flutter project.
+A Flutter-based VAT management application for tracking purchases, sales, and tax payables.
+
+## Test Credentials
+
+| Field    | Value            |
+|----------|------------------|
+| Username | sachin@gmail.com |
+| Password | S1*s2s3s4        |
+
+## Features
+
+- Firebase Authentication
+- VAT Summary Dashboard (Input VAT, Output VAT, VAT Payable)
+- Transaction history with tax breakdown
+- Responsive design for all screen sizes
+- Custom splash screen
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+```bash
+flutter pub get
+flutter run
+```
 
-A few resources to get you started if this is your first Flutter project:
+## Project Structure
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```
+lib/
+├── core/
+│   ├── routing/        # GoRouter navigation & splash delay
+│   └── theme/          # AppColors & AppTheme
+└── features/
+    ├── auth/
+    │   ├── data/        # Firebase & mock repositories
+    │   ├── domain/      # Models & repository interfaces
+    │   └── presentation/
+    │       ├── providers/
+    │       └── screens/ # Splash, Login
+    └── home/
+        └── presentation/
+            ├── screens/ # HomeScreen
+            └── widgets/ # HomeHeader, QuarterSelector,
+                         # VatSummaryCard, TransactionItem,
+                         # HomeBottomBar
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Dependencies
+
+| Package            | Purpose              |
+|--------------------|----------------------|
+| `flutter_riverpod` | State management     |
+| `go_router`        | Navigation           |
+| `firebase_core`    | Firebase init        |
+| `firebase_auth`    | Authentication       |
+| `google_fonts`     | Typography (Inter)   |
