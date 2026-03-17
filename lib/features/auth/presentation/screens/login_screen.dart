@@ -18,6 +18,17 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   bool _obscurePassword = true;
 
   Future<void> _login() async {
+    final username = _emailController.text.trim();
+    final password = _passwordController.text.trim();
+
+    // Validate empty fields first
+    if (username.isEmpty || password.isEmpty) {
+      setState(() {
+        _errorMessage = 'Please enter username and password';
+      });
+      return;
+    }
+
     setState(() {
       _isLoading = true;
       _errorMessage = null;
@@ -26,7 +37,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     try {
       await ref
           .read(authRepositoryProvider)
-          .signInWithEmail(_emailController.text, _passwordController.text);
+          .signInWithEmail(username, password);
     } catch (e) {
       setState(() {
         _errorMessage = 'Invalid username or password';

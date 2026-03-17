@@ -24,21 +24,8 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'TAXXON',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 48,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 4,
-              ),
-            ),
+            Image.asset('assets/icons/headText.jpg', width: 300),
             const SizedBox(height: 10),
-            Container(
-              width: 40,
-              height: 4,
-              color: Colors.white.withAlpha(128), // 0.5 opacity
-            ),
           ],
         ),
       ),
